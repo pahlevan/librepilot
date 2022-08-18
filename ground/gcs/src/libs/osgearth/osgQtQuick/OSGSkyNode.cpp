@@ -34,7 +34,7 @@
 #include <osgEarth/Config>
 #include <osgEarth/DateTime>
 #include <osgEarth/MapNode>
-#include <osgEarthUtil/Sky>
+#include <osgEarth/Sky>
 
 // #include <osgEarthDrivers/sky_silverlining/SilverLiningOptions>
 
@@ -49,7 +49,7 @@ struct OSGSkyNode::Hidden : public QObject {
 private:
     OSGSkyNode * const self;
 
-    osg::ref_ptr<osgEarth::Util::SkyNode> skyNode;
+    osg::ref_ptr<osgEarth::SkyNode> skyNode;
 
 public:
     OSGNode     *sceneNode;
@@ -102,7 +102,7 @@ public:
             self->setNode(NULL);
             return;
         }
-        if (!mapNode->getMap()->isGeocentric()) {
+        if (!mapNode->isGeocentric()) {
             qWarning() << "OSGSkyNode::updateScene - map node is not geocentric";
             self->setNode(NULL);
             return;
@@ -128,9 +128,9 @@ public:
         }
     }
 
-    osgEarth::Util::SkyNode *createSimpleSky(osgEarth::MapNode *mapNode)
+    osgEarth::SkyNode *createSimpleSky(osgEarth::MapNode *mapNode)
     {
-        return osgEarth::Util::SkyNode::create(mapNode);
+        return osgEarth::SkyNode::create(/*mapNode*/);
     }
 
 /*
@@ -196,7 +196,7 @@ public:
         }
         double d = minimumAmbientLight;
         // skyNode->getSunLight()->setAmbient(osg::Vec4(d, d, d, 1.0f));
-        skyNode->setMinimumAmbient(osg::Vec4(d, d, d, 1.0f));
+        //skyNode->setMinimumAmbient(osg::Vec4(d, d, d, 1.0f));
     }
 
     void attachSkyNode(osgViewer::View *view)

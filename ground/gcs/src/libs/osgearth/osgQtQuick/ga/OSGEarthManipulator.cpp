@@ -29,7 +29,7 @@
 
 #include "../OSGNode.hpp"
 
-#include <osgEarthUtil/EarthManipulator>
+#include <osgEarth/EarthManipulator>
 
 #include <QDebug>
 

@@ -43,12 +43,12 @@ osgearth {
     linux|macx {
         INCLUDEPATH += $$OSGEARTH_SDK_DIR/include
         LIBS += -L$$OSGEARTH_SDK_DIR/$$LIB_DIR_NAME
-        LIBS += -losgEarth -losgEarthUtil -losgEarthFeatures -losgEarthSymbology -losgEarthAnnotation
+        LIBS += -losgEarth
         osgearthQt:LIBS +=  -losgEarthQt
     }
 
     win32 {
-        LIBS += -losgEarth$${DS} -losgEarthUtil$${DS} -losgEarthFeatures$${DS} -losgEarthSymbology$${DS} -losgEarthAnnotation$${DS}
+        LIBS += -losgEarth$${DS}
         osgearthQt:LIBS += -losgEarthQt$${DS}
     }
 }

@@ -160,11 +160,7 @@ win32:osg {
 win32:osgearth {
     # osgearth libraries
     OSGEARTH_LIBS = \
-        libosgEarth$${DS}.dll \
-        libosgEarthAnnotation$${DS}.dll \
-        libosgEarthFeatures$${DS}.dll \
-        libosgEarthSymbology$${DS}.dll \
-        libosgEarthUtil$${DS}.dll
+        libosgEarth$${DS}.dll
 
     # loaded dynamically (probably by an osg plugin, need to find by which)
     OSGEARTH_LIBS += \
@@ -181,11 +177,8 @@ win32:osgearth {
     # osgearth plugins
     OSGEARTH_PLUGINS += \
         mingw_osgdb_earth$${DS}.dll \
-        mingw_osgdb_osgearth_arcgis$${DS}.dll \
-        mingw_osgdb_osgearth_engine_mp$${DS}.dll \
+        mingw_osgdb_osgearth_engine_rex$${DS}.dll \
         mingw_osgdb_osgearth_sky_simple$${DS}.dll \
-        mingw_osgdb_osgearth_tms$${DS}.dll \
-        mingw_osgdb_osgearth_xyz$${DS}.dll \
         mingw_osgdb_osgearth_cache_filesystem$${DS}.dll
 
     # more osgearth plugins
