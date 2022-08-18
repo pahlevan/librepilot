@@ -223,7 +223,7 @@ QString UAVObjectParser::parseXML(QString & xml, QString & filename)
         }
 
         // Sort all fields according to size
-        qStableSort(info->fields.begin(), info->fields.end(), fieldTypeLessThan);
+        std::stable_sort(info->fields.begin(), info->fields.end(), fieldTypeLessThan);
 
         // Make sure that required elements were found
         if (!fieldFound) {
@@ -528,7 +528,7 @@ QString UAVObjectParser::processObjectFields(QDomNode & childNode, ObjectInfo *i
             return QString("Object:field:elementnames attribute is not allowed for cloned fields");
         }
         // Get element names
-        QStringList names = elemAttr.nodeValue().split(",", QString::SkipEmptyParts);
+        QStringList names = elemAttr.nodeValue().split(",", Qt::SkipEmptyParts);
         for (int n = 0; n < names.length(); ++n) {
             names[n] = names[n].trimmed();
         }
@@ -581,7 +581,7 @@ QString UAVObjectParser::processObjectFields(QDomNode & childNode, ObjectInfo *i
         QStringList options;
         elemAttr = elemAttributes.namedItem("options");
         if (!elemAttr.isNull()) {
-            options = elemAttr.nodeValue().split(",", QString::SkipEmptyParts);
+            options = elemAttr.nodeValue().split(",", Qt::SkipEmptyParts);
             for (int n = 0; n < options.length(); ++n) {
                 options[n] = options[n].trimmed();
             }
@@ -623,7 +623,7 @@ QString UAVObjectParser::processObjectFields(QDomNode & childNode, ObjectInfo *i
     // Get the default value attribute (required for settings objects, optional for the rest)
     elemAttr = elemAttributes.namedItem("defaultvalue");
     if (!elemAttr.isNull()) {
-        QStringList defaults = elemAttr.nodeValue().split(",", QString::SkipEmptyParts);
+        QStringList defaults = elemAttr.nodeValue().split(",", Qt::SkipEmptyParts);
         for (int n = 0; n < defaults.length(); ++n) {
             defaults[n] = defaults[n].trimmed();
         }

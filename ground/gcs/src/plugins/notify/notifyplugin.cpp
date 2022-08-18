@@ -460,7 +460,7 @@ void SoundNotifyPlugin::checkNotificationRule(NotificationItem *notification, UA
             qNotifyDebug() << "add to pending list - " << notification->toString();
             // if audio is busy, start expiration timer
             // ms = (notification->getExpiredTimeout()[in sec])*1000
-            // QxtTimer::singleShot(notification->getExpireTimeout()*1000, this, SLOT(expirationTimerHandler(NotificationItem*)), qVariantFromValue(notification));
+            // QxtTimer::singleShot(notification->getExpireTimeout()*1000, this, SLOT(expirationTimerHandler(NotificationItem*)), QVariant::fromValue(notification));
             _pendingNotifications.append(notification);
             notification->startExpireTimer();
             connect(notification->getExpireTimer(), SIGNAL(timeout()),

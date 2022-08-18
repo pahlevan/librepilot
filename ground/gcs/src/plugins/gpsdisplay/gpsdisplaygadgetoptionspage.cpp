@@ -55,7 +55,7 @@ QWidget *GpsDisplayGadgetOptionsPage::createPage(QWidget *parent)
 
     // PORTS
     QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-    qSort(ports.begin(), ports.end(), sortPorts);
+    std::sort(ports.begin(), ports.end(), sortPorts);
     foreach(QSerialPortInfo port, ports) {
         qDebug() << "Adding port: " << port.systemLocation() << " (" << port.portName() << ")";
         options_page->portComboBox->addItem(port.portName(), port.portName());

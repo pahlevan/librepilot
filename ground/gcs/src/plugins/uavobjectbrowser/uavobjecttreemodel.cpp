@@ -606,7 +606,7 @@ QVariant UAVObjectTreeModel::data(const QModelIndex &index, int role) const
     case Qt::UserRole:
         // UserRole gives access to TreeItem
         // cast to void* is necessary
-        return qVariantFromValue((void *)item);
+        return QVariant::fromValue((void *)item);
 
     default:
         return QVariant();

@@ -76,7 +76,7 @@ struct Context {
 
 struct FieldContext {
     FieldContext(FieldInfo *fieldInfo, ObjectInfo *object);
-    FieldContext(const FieldContext &fieldContext);
+    FieldContext(const FieldContext &fieldContext) = default;
 
     FieldInfo *field;
     // field
@@ -615,11 +615,6 @@ bool UAVObjectGeneratorGCS::generate(UAVObjectParser *parser, QString templatepa
     }
 
     return true;
-}
-
-FieldContext::FieldContext(const FieldContext &fieldContext)
-{
-    *this = fieldContext;
 }
 
 FieldContext::FieldContext(FieldInfo *fieldInfo, ObjectInfo *object)

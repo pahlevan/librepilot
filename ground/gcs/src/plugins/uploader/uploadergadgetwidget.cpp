@@ -206,7 +206,7 @@ void UploaderGadgetWidget::getSerialPorts()
     QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
 
     // sort the list by port number (nice idea from PT_Dreamer :))
-    qSort(ports.begin(), ports.end(), sortPorts);
+    std::sort(ports.begin(), ports.end(), sortPorts);
     foreach(QSerialPortInfo port, ports) {
         list.append(port.portName());
     }
