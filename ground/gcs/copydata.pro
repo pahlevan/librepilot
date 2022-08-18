@@ -87,7 +87,8 @@ win32 {
         Qt5MultimediaWidgets$${DS}.dll \
         Qt5Quick$${DS}.dll \
         Qt5QuickWidgets$${DS}.dll \
-        Qt5Qml$${DS}.dll
+        Qt5Qml$${DS}.dll \
+        Qt5QmlWorkerScript$${DS}.dll
 
     for(dll, QT_DLLS) {
         addCopyFileTarget($${dll},$$[QT_INSTALL_BINS],$${GCS_APP_PATH})
