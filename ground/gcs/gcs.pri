@@ -57,7 +57,7 @@ defineTest(addCopyDependenciesTarget) {
     file = $$1
     src  = $$2/$$1
     dest = $$3
-
+    excludes = OPENGL32.dll libgallium_wgl.dll libLLVM-14.dll
     target_file = $${OUT_PWD}/deps/$${file}.deps
 
     target = $${file}_deps
@@ -65,7 +65,7 @@ defineTest(addCopyDependenciesTarget) {
     $${target}.depends   = $$src
 
     $${target}.commands  = -@$(MKDIR) \"$$dirname(target_file)\" $$addNewline()
-    $${target}.commands  += $$(PYTHON) $$(ROOT_DIR)/make/copy_dependencies.py --dest \"$$dest\" --files \"$$src\" --excludes OPENGL32.DLL > \"$$target_file\"
+    $${target}.commands  += $$(PYTHON) $$(ROOT_DIR)/make/copy_dependencies.py --dest \"$$dest\" --files \"$$src\" --excludes $$excludes > \"$$target_file\"
 
     QMAKE_EXTRA_TARGETS += $$target
     POST_TARGETDEPS += $$eval($${target}.target)
