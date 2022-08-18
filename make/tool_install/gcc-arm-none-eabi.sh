@@ -21,10 +21,6 @@ _pkgvershort=${_pkgvershort/-q/q}
 tool_url="https://developer.arm.com/-/media/Files/downloads/gnu-rm/${pkgver}/${tool}-${pkgver}-${url_ext}"
 #tool_install_name="${tool}-${_pkgvershort/./_}"
 tool_install_name="${tool}-${pkgver}"
-if [ "$uname" = Windows ]
-then
-	tool_extract_dir=$tools_dir/$tool_install_name
-fi
 
 bin_subdir=bin
 
