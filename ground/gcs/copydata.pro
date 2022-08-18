@@ -96,8 +96,8 @@ win32 {
 
     # copy OpenSSL DLLs
     OPENSSL_DLLS = \
-        ssleay32.dll \
-        libeay32.dll
+        libcrypto-1_1-x64.dll \
+        libssl-1_1-x64.dll
 
     for(dll, OPENSSL_DLLS) {
         addCopyFileTarget($${dll},$$[QT_INSTALL_BINS],$${GCS_APP_PATH})
